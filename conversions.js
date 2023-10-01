@@ -18,3 +18,9 @@ int = +int              // Expected value: 15 -> typeof int: 'number'
 // Convert float to int
 
 const int2 = 19.8 | 0   // Expected value: 19 -> typeof int2: 'number'
+
+
+// Remove last digits
+
+const int3 = 1253 / 10 | 0   // Expected value: 125 -> typeof int2: 'number'
+
