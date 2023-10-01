@@ -17,3 +17,9 @@ const w = arr.shift()       // arr = [2, 3],        x = 1
 const x = arr.unshift(9)    // arr = [9, 1, 2, 3],  x = 4
 const y = arr.pop()         // arr = [1, 2],        x = 3
 const z = arr.push(5)       // arr = [1, 2, 3, 5],  x = 4
+
+// Filter unique values
+
+const array = [8, 1, 1, 2, 3, 4, 6, 6, 3, 1]
+
+const uniqueArray = [...new Set(array)]     // Expected output: [8, 1, 2, 3, 4, 6]
