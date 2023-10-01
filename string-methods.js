@@ -13,3 +13,8 @@ const str2 = 'friends';
 
 console.log(str1.concat(' ', str2));    // "Hello friends"
 console.log(str2.concat(', ', str1));   // "friends, Hello"
+
+// Convert to string
+
+const val = 5 + ''      // Expected value: '5' -> typeof val: 'string'
+
