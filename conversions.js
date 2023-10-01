@@ -13,3 +13,8 @@ const val = 5 + ''      // Expected value: '5' -> typeof val: 'string'
 
 const int = '15'
 int = +int              // Expected value: 15 -> typeof int: 'number'
+
+
+// Convert float to int
+
+const int2 = 19.8 | 0   // Expected value: 19 -> typeof int2: 'number'
