@@ -28,3 +28,7 @@ const uniqueArray = [...new Set(array)]     // Expected output: [8, 1, 2, 3, 4, 
 // Truncate an array
 
 array.length = 4        // Expected output: [8, 1, 1, 2]
+
+// Last item in array
+
+array.slice(-1)        // Expected output: [1]
