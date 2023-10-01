@@ -23,3 +23,8 @@ const z = arr.push(5)       // arr = [1, 2, 3, 5],  x = 4
 const array = [8, 1, 1, 2, 3, 4, 6, 6, 3, 1]
 
 const uniqueArray = [...new Set(array)]     // Expected output: [8, 1, 2, 3, 4, 6]
+
+
+// Truncate an array
+
+array.length = 4        // Expected output: [8, 1, 1, 2]
