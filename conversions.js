@@ -24,3 +24,16 @@ const int2 = 19.8 | 0   // Expected value: 19 -> typeof int2: 'number'
 
 const int3 = 1253 / 10 | 0   // Expected value: 125 -> typeof int2: 'number'
 
+
+// Use the `space` attribute to format the JSON.stringify output.
+
+const user = {name: 'Marko', handle: '@denicmarko'};
+
+JSON.stringify(user);
+// '{"name":"Marko","handle":"@denicmarko"}'
+
+JSON.stringify(user, null, 2);
+// {
+//  "name": "Marko",
+//  "handle": "@denicmarko"
+// }
