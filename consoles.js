@@ -1,3 +1,9 @@
+// variable names
+
+const myNumber = 123
+
+console.log({ myNumber }) // Returns: { myNumber: 123 }
+
 // Table
 
 function Person(firstName, lastName) {
