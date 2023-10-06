@@ -69,8 +69,8 @@ let result = userName ?? text;
 
 // The ??= operator, also known as the logical nullish assignment operator, only evaluates the right operand and assigns to the left if the left operand is nullish (null or undefined)
 
-const muscleCar = { brand: 'Mustang' }
-muscleCar.brand ??= 'Tesla';
+const muscleCar = { brand: 'Dodge' }
+muscleCar.brand ??= 'Chevrolet';
 console.log(muscleCar.brand);
 // Expected output: 'Mustang'
 
