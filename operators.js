@@ -65,6 +65,20 @@ let text = "missing";
 let result = userName ?? text;
 
 
+// The Nullish coalescing assignment (??=)
+
+// The ??= operator, also known as the logical nullish assignment operator, only evaluates the right operand and assigns to the left if the left operand is nullish (null or undefined)
+
+const muscleCar = { brand: 'Mustang' }
+muscleCar.brand ??= 'Tesla';
+console.log(muscleCar.brand);
+// Expected output: 'Mustang'
+
+muscleCar.speed ??= 250;
+console.log(muscleCar.speed);
+// Expected output: 250
+
+
 // The Optional Chaining Operator (?.)
 
 // The ?. operator returns undefined if an object is undefined or null (instead of throwing an error)
