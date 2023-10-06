@@ -24,6 +24,9 @@ const array = [8, 1, 1, 2, 3, 4, 6, 6, 3, 1]
 
 const uniqueArray = [...new Set(array)]     // Expected output: [8, 1, 2, 3, 4, 6]
 
+// add elements (where, how many to remove, element list)
+
+uniqueArray.splice(2, 0, "a", "b");   // Expected output: [8, 1, 'a', 'b', 2, 3, 4, 6]
 
 // Truncate an array
 
