@@ -1,23 +1,22 @@
 // variable names
 
-const myNumber = 123
+const myNumber = 123;
 
-console.log({ myNumber }) // Returns: { myNumber: 123 }
+console.log({ myNumber }); // Returns: { myNumber: 123 }
 
 // Table
 
 function Person(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
-const john = new Person('John', 'Smith')
-const jane = new Person('Jane', 'Doe')
-const goku = new Person('Son', 'Goku')
+const john = new Person('John', 'Smith');
+const jane = new Person('Jane', 'Doe');
+const goku = new Person('Son', 'Goku');
 
-console.table([john, jane, goku]) // Returns array table
-
+console.table([john, jane, goku]); // Returns array table
 
 // Styled
 
-console.log("%c So stylish", "color: #permet en8896DB, font-size: 24px")
+console.log('%c So stylish', 'color: #permet en8896DB, font-size: 24px');
