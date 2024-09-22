@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url('https://unpkg.com/normalize.css') layer(normalize);
+
+    @layer normalize, base, demo;
+
+    @layer demo {
+      :root {
+        --border: 2;
+      }
+      .border-button {
+        --bg: color-mix(in hsl, canvas, canvasText 10%);
+        --color: color-mix(in hsl, canvasText, canvas 20%);
+        color: var(--color);
+        position: relative;
+        padding: 0.5rem 1rem;
+        border: calc(var(--border) * 1px) solid transparent;
+        background: linear-gradient(var(--bg), var(--bg)) padding-box;
+        font-family: sans-serif;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        outline-offset: 0.25rem;
+        outline-color: hsl(210 100% 60%);
+        svg {
+          width: 24px;
+        }
+
+        span {
+          white-space: nowrap;
+        }
+      }
+      .border-button::after,
+      .border-button::before {
+        content: '';
+        border-radius: 12px;
+        position: absolute;
+        inset: calc(var(--border) * -1px);
+        z-index: -1;
+      }
+
+      .border-button::before {
+        background: color-mix(in hsl, var(--color), canvas 75%);
+      }
+
+      @property --complete {
+        initial-value: 0;
+        syntax: '<number>';
+        inherits: true;
+      }
+
+      [data-style='single'] {
+        .border-button::after {
+          mask: conic-gradient(
+            from calc(var(--from, 0) * 1deg),
+            #000 calc(var(--complete) * 1%),
+            #0000 calc(var(--complete) * 1%)
+          );
+        }
+      }
+
+      [data-style='double'] {
+        .border-button::after {
+          mask: conic-gradient(
+            from calc(var(--from, 0) * 1deg),
+            #000 calc(var(--complete) * 1%),
+            #0000 calc(var(--complete) * 1%),
+            #0000 calc((100 - var(--complete)) * 1%),
+            #000 calc((100 - var(--complete)) * 1%)
+          );
+        }
+      }
+
+      .border-button::after {
+        background: linear-gradient(
+          65deg,
+          hsl(280 90% 60%),
+          hsl(35 100% 55%),
+          hsl(10 100% 55%)
+        );
+        mask-size: 200px 200px;
+        mask-position: 50% 50%;
+        transition: --complete 0.6s;
+        transition-timing-function: linear(
+          0 0%,
+          0.0027 3.64%,
+          0.0106 7.29%,
+          0.0425 14.58%,
+          0.0957 21.87%,
+          0.1701 29.16%,
+          0.2477 35.19%,
+          0.3401 41.23%,
+          0.5982 55.18%,
+          0.7044 61.56%,
+          0.7987 68.28%,
+          0.875 75%,
+          0.9297 81.25%,
+          0.9687 87.5%,
+          0.9922 93.75%,
+          1 100%
+        );
+      }
+
+      .border-button:is(:hover, :focus-visible) {
+        --complete: 100;
+      }
+    }
+
+    @layer base {
+      :root {
+        --font-size-min: 16;
+        --font-size-max: 20;
+        --font-ratio-min: 1.2;
+        --font-ratio-max: 1.33;
+        --font-width-min: 375;
+        --font-width-max: 1500;
+      }
+
+      html {
+        color-scheme: light dark;
+      }
+
+      [data-theme='light'] {
+        color-scheme: light only;
+      }
+
+      [data-theme='dark'] {
+        color-scheme: dark only;
+      }
+
+      :where(.fluid) {
+        --fluid-min: calc(
+          var(--font-size-min) *
+            pow(var(--font-ratio-min), var(--font-level, 0))
+        );
+        --fluid-max: calc(
+          var(--font-size-max) *
+            pow(var(--font-ratio-max), var(--font-level, 0))
+        );
+        --fluid-preferred: calc(
+          (var(--fluid-max) - var(--fluid-min)) /
+            (var(--font-width-max) - var(--font-width-min))
+        );
+        --fluid-type: clamp(
+          (var(--fluid-min) / 16) * 1rem,
+          ((var(--fluid-min) / 16) * 1rem) -
+            (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+            (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+          (var(--fluid-max) / 16) * 1rem
+        );
+        font-size: var(--fluid-type);
+      }
+
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons',
+          'Helvetica Neue', Helvetica, Arial, sans-serif, system-ui;
+      }
+
+      body::before {
+        --size: 45px;
+        --line: color-mix(in lch, canvasText, transparent 70%);
+        content: '';
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background: linear-gradient(
+              90deg,
+              var(--line) 1px,
+              transparent 1px var(--size)
+            )
+            50% 50% / var(--size) var(--size),
+          linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+            var(--size) var(--size);
+        mask: linear-gradient(-20deg, transparent 50%, white);
+        top: 0;
+        transform-style: flat;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .bear-link {
+        color: canvasText;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        width: 48px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        opacity: 0.8;
+      }
+
+      :where(.x-link, .bear-link):is(:hover, :focus-visible) {
+        opacity: 1;
+      }
+
+      .bear-link svg {
+        width: 75%;
+      }
+
+      /* Utilities */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    }
+  </style>
+  <body>
+    <button class="border-button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="size-6"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span>Play Episode</span>
+    </button>
+    <a
+      class="bear-link"
+      href="https://twitter.com/intent/follow?screen_name=jh3yy"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <svg
+        class="w-9"
+        viewBox="0 0 969 955"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="161.191"
+          cy="320.191"
+          r="133.191"
+          stroke="currentColor"
+          stroke-width="20"
+        ></circle>
+        <circle
+          cx="806.809"
+          cy="320.191"
+          r="133.191"
+          stroke="currentColor"
+          stroke-width="20"
+        ></circle>
+        <circle
+          cx="695.019"
+          cy="587.733"
+          r="31.4016"
+          fill="currentColor"
+        ></circle>
+        <circle
+          cx="272.981"
+          cy="587.733"
+          r="31.4016"
+          fill="currentColor"
+        ></circle>
+        <path
+          d="M564.388 712.083C564.388 743.994 526.035 779.911 483.372 779.911C440.709 779.911 402.356 743.994 402.356 712.083C402.356 680.173 440.709 664.353 483.372 664.353C526.035 664.353 564.388 680.173 564.388 712.083Z"
+          fill="currentColor"
+        ></path>
+        <rect
+          x="310.42"
+          y="448.31"
+          width="343.468"
+          height="51.4986"
+          fill="#FF1E1E"
+        ></rect>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M745.643 288.24C815.368 344.185 854.539 432.623 854.539 511.741H614.938V454.652C614.938 433.113 597.477 415.652 575.938 415.652H388.37C366.831 415.652 349.37 433.113 349.37 454.652V511.741L110.949 511.741C110.949 432.623 150.12 344.185 219.845 288.24C289.57 232.295 384.138 200.865 482.744 200.865C581.35 200.865 675.918 232.295 745.643 288.24Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </a>
+    <script type="module">
+      import { Pane } from 'https://cdn.skypack.dev/tweakpane';
+
+      const config = {
+        style: 'double',
+        theme: 'dark',
+      };
+
+      const ctrl = new Pane({
+        title: 'Config',
+        expanded: true,
+      });
+
+      const update = () => {
+        document.documentElement.dataset.theme = config.theme;
+        document.documentElement.dataset.style = config.style;
+      };
+
+      const sync = (event) => {
+        if (
+          !document.startViewTransition ||
+          event.target.controller.view.labelElement.innerText !== 'Theme'
+        )
+          return update();
+        document.startViewTransition(() => update());
+      };
+
+      ctrl.addBinding(config, 'style', {
+        label: 'Style',
+        options: {
+          Single: 'single',
+          Double: 'double',
+        },
+      });
+
+      ctrl.addBinding(config, 'theme', {
+        label: 'Theme',
+        options: {
+          System: 'system',
+          Light: 'light',
+          Dark: 'dark',
+        },
+      });
+
+      ctrl.on('change', sync);
+      update();
+
+      const button = document.querySelector('.border-button');
+      const setAngle = ({ x, y, target }) => {
+        const { left, top, width, height } = target.getBoundingClientRect();
+        const center = {
+          x: left + width * 0.5,
+          y: top + height * 0.5,
+        };
+        const delta = {
+          x: x - center.x,
+          y: y - center.y,
+        };
+        const radians = Math.atan2(delta.y, delta.x);
+        const degrees = radians * (180 / Math.PI);
+        target.style.setProperty('--from', (degrees + 360 + 90) % 360);
+      };
+
+      button.addEventListener('pointerenter', setAngle);
+      button.addEventListener('pointerleave', setAngle);
+    </script>
+  </body>
+</html>
