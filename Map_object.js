@@ -7,7 +7,7 @@ myMap.set('key2', 'value2');
 myMap.set('key3', 'value3');
 
 for (const [key, value] of myMap) {
-    console.log(key, value);
+  console.log(key, value);
 }
 
 // Getting the value for a specific key
