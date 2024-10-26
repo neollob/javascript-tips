@@ -29,7 +29,6 @@ console.group("User Information")
 console.log("Name: John")
 console.log("Age: 25");
 console.groupEnd()
-
 // Returns:
 // User Information  
 //     Name: John
@@ -47,6 +46,13 @@ console.error("This id an error message") // Returns message in red
 
 console.warn("This id an warning message") // Returns message in yellow
 
-// info
+// Info
 
 console.info("This id an informational message") // Returns informational message
+
+
+// Time. Measures the time taken for an operation. Start with console.time("label") and end with console.timeEnd("Label").
+console.time("Loading Time");
+for (let i = 0; i < 1000000; i++) {} // Example loop for timing
+console.timeEnd ("Loading Time"); // Output: Loading Time: (time in ms)
+
