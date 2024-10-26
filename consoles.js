@@ -82,3 +82,8 @@ at secondFunction (<anonymous>:XX)
 at firstFunction (<anonymous>:XX)
 */
 
+// Count. Logs the number of times it's been called with a specific label. Useful for tracking events or calls.
+console.count("Counter"); // Output: Counter: 1
+console.count("Counter"); // Output: Counter: 2
+console.count("Another Counter"); // Output: Another Counter: 1
+console.count("Counter"); // Output: Counter: 3
