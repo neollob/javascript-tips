@@ -35,3 +35,7 @@ console.error("This id an error message") // Returns message in red
 // Warning
 
 console.warn("This id an warning message") // Returns message in yellow
+
+// info
+
+console.info("This id an informational message") // Returns informational message
