@@ -24,3 +24,7 @@ console.log('%c So stylish', 'color: #permet en8896DB, font-size: 24px');
 // Error
 
 console.error("This id an error message") // Returns message in red
+
+// Warning
+
+console.warn("This id an warning message") // Returns message in yellow
