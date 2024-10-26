@@ -17,6 +17,13 @@ const goku = new Person('Son', 'Goku');
 
 console.table([john, jane, goku]); // Returns array table
 
+// (index) | firstName  | lastName
+//    0	   |  'John'	  |  'Smith'
+//    1	   |  'Jane'	  |  'Doe'
+//    2	   |  'Son'	    |  'Goku'
+// Array(3)
+
+
 // Styled
 
 console.log('%c So stylish', 'color: #permet en8896DB, font-size: 24px');
