@@ -67,3 +67,18 @@ console.clear(); // Clears all messages from the console
 // Useful for exploring objects.
 const user = { name: "Charlie", age: 35, location: "New York" };
 console.dir(user); // Output: Displays the 'user' object with its properties
+
+// Trace. Prints a stack trace, showing the sequence of function calls leading to the point where it's called. Great for tracking the flow of code.
+const firstFunction=()=> {
+secondFunction();
+}
+const secondFunction=()=> {
+}
+console.trace("Trace example");
+firstFunction();
+/* Output:
+Trace example
+at secondFunction (<anonymous>:XX)
+at firstFunction (<anonymous>:XX)
+*/
+
