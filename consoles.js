@@ -23,6 +23,17 @@ console.table([john, jane, goku]); // Returns array table
 //    2	   |  'Son'	    |  'Goku'
 // Array(3)
 
+// Group. Groups related logs together, creating a collapsible section in the console. Useful for organizating logs.
+
+console.group("User Information")
+console.log("Name: John")
+console.log("Age: 25");
+console.groupEnd()
+
+// Returns:
+// User Information  
+//     Name: John
+//     Age: 25
 
 // Styled
 
