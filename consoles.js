@@ -20,3 +20,7 @@ console.table([john, jane, goku]); // Returns array table
 // Styled
 
 console.log('%c So stylish', 'color: #permet en8896DB, font-size: 24px');
+
+// Error
+
+console.error("This id an error message") // Returns message in red
