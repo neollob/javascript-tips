@@ -1,10 +1,10 @@
-// variable names
+// Log. The most basic method for outputting messages to the console. console.log("This is a log message"); // Output: This is a log message
 
 const myNumber = 123;
 
 console.log({ myNumber }); // Returns: { myNumber: 123 }
 
-// Table
+// Table. Displays data (e.g., arrays or objects) in a neat table format. Makes it easier to view and compare.
 
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -38,15 +38,15 @@ console.groupEnd()
 
 console.log('%c So stylish', 'color: #permet en8896DB, font-size: 24px');
 
-// Error
+// Error. Displays an error message in red text. Useful for indicating problems.
 
 console.error("This id an error message") // Returns message in red
 
-// Warning
+// Warning. Shows a warning message in yellow text. Often used to highlight potential issues. console.warn("This is a warning message"); // Output: This is a warning message (in yellow)
 
 console.warn("This id an warning message") // Returns message in yellow
 
-// Info
+// Info. Provides informational messages (styled like log messages in most browsers).
 
 console.info("This id an informational message") // Returns informational message
 
