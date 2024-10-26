@@ -60,3 +60,5 @@ console.timeEnd ("Loading Time"); // Output: Loading Time: (time in ms)
 const isAdmin = false;
 console.assert(isAdmin, "User is not an admin!"); // Output: Assertion failed: User is not an admin!
 
+// Clear. Clears the console. Use this when you want to clean up previous messages.
+console.clear(); // Clears all messages from the console
