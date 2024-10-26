@@ -87,3 +87,7 @@ console.count("Counter"); // Output: Counter: 1
 console.count("Counter"); // Output: Counter: 2
 console.count("Another Counter"); // Output: Another Counter: 1
 console.count("Counter"); // Output: Counter: 3
+
+// CountReset. Resets the count for a specified label.
+console.countReset("Counter");
+console.count("Counter"); // Output: Counter: 1
