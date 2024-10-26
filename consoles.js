@@ -56,3 +56,7 @@ console.time("Loading Time");
 for (let i = 0; i < 1000000; i++) {} // Example loop for timing
 console.timeEnd ("Loading Time"); // Output: Loading Time: (time in ms)
 
+// Assert. Displays an error message if the condition provided is false. Helpful for quick checks during debugging.
+const isAdmin = false;
+console.assert(isAdmin, "User is not an admin!"); // Output: Assertion failed: User is not an admin!
+
