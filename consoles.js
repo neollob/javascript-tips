@@ -62,3 +62,8 @@ console.assert(isAdmin, "User is not an admin!"); // Output: Assertion failed: U
 
 // Clear. Clears the console. Use this when you want to clean up previous messages.
 console.clear(); // Clears all messages from the console
+
+// Dir. Displays an interactive list of the properties of a specified JavaScript object.
+// Useful for exploring objects.
+const user = { name: "Charlie", age: 35, location: "New York" };
+console.dir(user); // Output: Displays the 'user' object with its properties
