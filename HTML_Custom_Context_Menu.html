@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+Custom Context Menu with JavaScript -> BilliCodes
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Custom Context Menu with JavaScript</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #e9ecef;
+margin: 0;
+}
+.context-menu {
+
+display: none;
+position: absolute;
+background-color: #fff;
+border-radius: 12px; /* Slightly rounded corners */ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+z-index: 1000;
+transition: opacity 0.3s ease, transform 0.3s ease; opacity: 0;
+transform: scale (0.9);
+min-width: 200px;
+.context-menu.show {
+display: block;
+opacity: 1;
+transform: scale(1);
+}}
+</style>
+</head>
+<body>
+<h1>Build Interactive and Modern UI components.</h1>
+<div class="context-menu" id="contextMenu">
+<div class="context-menu-header">Actions</div>
+<div class="context-menu-item" data-action="new">New File</div> <div class="context-menu-item" data-action="open">Open File</div> <div class="context-menu-item" data-action="save">Save File</div> <div class="context-menu-item" data-action="share">Share</div> <div class="context-menu-item" data-action="settings">Settings</div> <div class="context-menu-item" data-action="logout">Logout</div> </div>
+<div id="message"></div> <!-- Message display area -->
+<script>
+const contextMenu = document.getElementById('contextMenu'); const messageDiv = document.getElementById('message');
+// Show context menu on right-click
+document.addEventListener('contextmenu', (event) => {
+});
+event.preventDefault(); // Prevent the default context menu contextMenu.style.top = ${event.clientY}px; // Position the menu contextMenu.style.left = ${event.clientX}px`;
+contextMenu.classList.add('show'); // Show the menu with animation messageDiv.textContent = ''; // Clear previous message
+// Hide context menu on click
+document.addEventListener('click', () => {
+});
+contextMenu.classList.remove('show'); // Hide the menu
+// Add functionality to each menu item
+document.querySelectorAll('.context-menu-item').forEach (item => {
+});
+item.addEventListener('click', (event) => {
+});
+const action = event.currentTarget.dataset.action; // Get action from data Attr messageDiv.textContent = You selected: ${action.charAt(0) .toUpperCase()+ action.slice(1)}!; // Show selected action contextMenu.classList.remove('show'); // Hide menu after selection
+</script>
+</body>
+</html>
