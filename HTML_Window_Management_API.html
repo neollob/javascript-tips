@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Window Management API Example</title>
+<style>
+button:disabled {
+background-color: #bdc3c7; /* Disabled button color */
+}
+</style>
+</head>
+<body>
+<h1>Window Management API</h1>
+<button id="openWindowBtn">Open New Window</button>
+<button id="closeWindowBtn" disabled>Close New Window</button>
+<script>
+// Declare a variable to hold the reference to the newly opened window 
+let newWindow;
+// Function to open a new window and write content to it
+const openNewWindow = () => {
+
+// Open a new window with specified dimensions
+newWindow = window.open('', 'New Window', 'width=400,height=400');
+// Check if the new window was opened successfully
+if (newWindow) {
+// Write HTML content to the new window
+newwindow.document.write(`
+
+<h1>Welcome to the New Window!</h1>
+<p>This is a new window created using the Window Management API.</p>
+`);
+newwindow.document.close(); // Close the document stream to render the content
+// Enable the close button after opening the new window 
+document.getElementById('closeWindowBtn').disabled = false;
+} else {
+
+// Alert the user if the new window could not be opened
+alert('Failed to open new window. Please check your browser settings.');
+}
+};
+// Function to close the opened window
+const closeNewWindow = () => {
+// Check if the new window reference exists
+if (newWindow) {
+newwindow.close(); // Close the new window 
+newwindow= null; // Reset the reference to null
+
+// Disable the close button to prevent further clicks 
+document.getElementById('closeWindowBtn').disabled = true;
+};
+}
+// Set up event listeners for button clicks
+
+document.getElementById('openWindowBtn').addEventListener('click',openNewWindow); 
+document.getElementById('closeWindowBtn').addEventListener('click', closeNewWindow);
+</script>
+</body>
+</html>
