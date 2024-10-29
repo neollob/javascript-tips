@@ -49,8 +49,9 @@
     <div id="toast" class="toast"></div>
 
     <script>
-      const statusEL = document.getElementById('status'),
+      const statusEl = document.getElementById('status'),
         toast = document.getElementById('toast');
+
       // Update status text and show corresponding toast
       const updateStatus = (online) => {
         const msg = online ? 'You are online' : 'You are offline';
@@ -58,6 +59,7 @@
         statusEl.style.color = online ? 'green' : 'red'; // Set text color based on status
         showToast(msg, online);
       };
+
       // Show toast with message and background color
       const showToast = (msg, online) => {
         toast.textContent = msg;
@@ -65,9 +67,12 @@
         setTimeout(() => {
           toast.className = 'toast'; // Hide toast after 3 seconds
         }, 3000);
-      }; // Event listeners for online/offline status changes
+      }; 
+      
+      // Event listeners for online/offline status changes
       window.addEventListener('online', () => updateStatus(true));
       window.addEventListener('offline', () => updateStatus(false));
+      
       // Initial status check
       updateStatus(navigator.onLine);
     </script>
