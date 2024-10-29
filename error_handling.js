@@ -16,12 +16,12 @@ try {
 
 // 2. Throwing Custom Errors
 // You can create and throw your own errors for specific situations.
-function checkAge(age) {
+const checkAge = (age) => {
   if (age < 18) {
     throw new Error('Age must be at least 18'); // Throw an error if age is under 18
   }
   return 'Access granted'; // If age is valid, return a message
-}
+};
 
 try {
   console.log(checkAge(15)); // Test with an invalid age
@@ -38,11 +38,11 @@ class ValidationError extends Error {
   }
 }
 
-function validateUsername(username) {
+const validateUsername = (username) => {
   if (username.length < 5) {
     throw new ValidationError('Username must be at least 5 characters long'); // Throw custom error
   }
-}
+};
 
 try {
   validateUsername('abc'); // Test with an invalid username
@@ -52,7 +52,7 @@ try {
 
 // 4. Asynchronous Error Handling
 // Handle errors in asynchronous code using async/await.
-async function fetchData() {
+const fetchData = async () => {
   try {
     let response = await fetch('https://api.example.com/data'); // Fetch data
     if (!response.ok) {
@@ -63,7 +63,7 @@ async function fetchData() {
   } catch (error) {
     console.error('Error fetching data: ', error.message); // Log errors
   }
-}
+};
 
 fetchData(); // Call the function to fetch data
 
