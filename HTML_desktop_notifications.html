@@ -1,40 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Auto Desktop Notification</title>
-</head>
-<body>
-<h1>Wait for 5 seconds, and a notification will pop up!</h1>
-<script>
-// Function to display the notification
-const showNotification = () => {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto Desktop Notification</title>
+  </head>
+  <body>
+    <h1>Wait for 5 seconds, and a notification will pop up!</h1>
 
-// Check if the browser supports notifications
-if (!('Notification' in window)) {
-alert('This browser does not support desktop notifications.');
-} else if (Notification.permission === 'granted') {
-// Show notification if permission is already granted
-new Notification('Hello! You´ve got a new notification!');
-} else if (Notification.permission !== 'denied') {
-// Request permission if not denied before 
-Notification.requestPermission().then(permission => {
-if (permission ==='granted') {
-new Notification('Permission granted! Here´s a notification!'); } else {
-alert('Notification permission denied.');
-}
-}).catch(err => {
-console.error('Permission request error:', err);
-});
-} else {
-alert('Notification permission denied.');
-}
-};
+    <script>
+      // Function to display the notification
+      const showNotification = () => {
+        // Check if the browser supports notifications
+        if (!('Notification' in window)) {
+          alert('This browser does not support desktop notifications.');
+        } else if (Notification.permission === 'granted') {
+          // Show notification if permission is already granted
+          new Notification('Hello! You´ve got a new notification!');
+        } else if (Notification.permission !== 'denied') {
+          // Request permission if not denied before
+          Notification.requestPermission()
+            .then((permission) => {
+              if (permission === 'granted') {
+                new Notification('Permission granted! Here´s a notification!');
+              } else {
+                alert('Notification permission denied.');
+              }
+            })
+            .catch((err) => {
+              console.error('Permission request error:', err);
+            });
+        } else {
+          alert('Notification permission denied.');
+        }
+      };
 
-// Automatically trigger the notification after 5 seconds 
-setTimeout(showNotification, 5000);
-</script>
-</body>
+      // Automatically trigger the notification after 5 seconds
+      setTimeout(showNotification, 5000);
+    </script>
+  </body>
 </html>
