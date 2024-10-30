@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Network Status (Online/Offline) with JavaScript</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #status {
+        font-weight: bold;
+      }
+      /* Toast styling */
+      .toast {
+        visibility: hidden;
+        min-width: 200px;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        position: fixed;
+        right: 20px;
+        bottom: -50px; /* Start hidden off-screen */
+        border-radius: 4px;
+        z-index: 1;
+        font-size: 16px;
+        transition: all 0.5s ease, opacity 0.5s; /* Smooth slide and fade */
+        opacity: 0;
+      }
+      /* Show toast */
+      .show {
+        visibility: visible;
+        bottom: 20px; /* Slide in */
+        opacity: 1;
+      }
+      /* Colors for online and offline */
+      .online {
+        background-color: green;
+      }
+      .offline {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Online/Offline Status</h3>
+    <div id="status"></div>
+    <div id="toast" class="toast"></div>
+
+    <script>
+      const statusEl = document.getElementById('status'),
+        toast = document.getElementById('toast');
+
+      // Update status text and show corresponding toast
+      const updateStatus = (online) => {
+        const msg = online ? 'You are online' : 'You are offline';
+        statusEl.textContent = msg;
+        statusEl.style.color = online ? 'green' : 'red'; // Set text color based on status
+        showToast(msg, online);
+      };
+
+      // Show toast with message and background color
+      const showToast = (msg, online) => {
+        toast.textContent = msg;
+        toast.className = `toast show ${online ? 'online' : 'offline'}`; // Toggle Active Status
+        setTimeout(() => {
+          toast.className = 'toast'; // Hide toast after 3 seconds
+        }, 3000);
+      }; 
+      
+      // Event listeners for online/offline status changes
+      window.addEventListener('online', () => updateStatus(true));
+      window.addEventListener('offline', () => updateStatus(false));
+      
+      // Initial status check
+      updateStatus(navigator.onLine);
+    </script>
+  </body>
+</html>
