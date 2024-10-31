@@ -49,6 +49,7 @@ console.info('This id an informational message'); // Returns informational messa
 console.time('Loading Time');
 for (let i = 0; i < 1000000; i++) {} // Example loop for timing
 console.timeEnd('Loading Time'); // Output: Loading Time: (time in ms)
+// see also timer performance.now()
 
 // Assert. Displays an error message if the condition provided is false. Helpful for quick checks during debugging.
 const isAdmin = false;
