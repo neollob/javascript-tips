@@ -1,3 +1,5 @@
+// Use 𝚙𝚎𝚛𝚏𝚘𝚛𝚖𝚊𝚗𝚌𝚎.𝚗𝚘𝚠() to measure the precise time taken by a function or block of code.
+
 // Start the timer
 const startTime = performance.now();
 
